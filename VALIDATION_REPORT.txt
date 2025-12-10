@@ -1,0 +1,84 @@
+Media Server Stack - Validation Report
+=======================================
+
+Generated: Wed Dec 10 14:31:55 CST 2025
+
+File Structure:
+--------------
+.env.example - 1.3K
+docker-compose.yml - 4.9K
+README.md - 6.1K
+SETUP_GUIDE.md - 16K
+start.sh - 3.3K
+stop.sh - 785B
+TROUBLESHOOTING.md - 11K
+VERIFICATION.md - 8.6K
+
+Directory Structure:
+-------------------
+config
+config/bazarr
+config/jellyfin
+config/jellyseerr
+config/prowlarr
+config/radarr
+config/rdtclient
+config/sonarr
+media
+media/downloads
+media/downloads/movies
+media/downloads/tv
+media/movies
+media/tv
+
+Docker Compose Validation:
+--------------------------
+Services: 8 defined
+Networks: media-network configured
+YAML Valid: YES
+
+Documentation Metrics:
+---------------------
+README.md: 212 lines
+SETUP_GUIDE.md: 627 lines
+VERIFICATION.md: 342 lines
+TROUBLESHOOTING.md: 528 lines
+
+Script Validation:
+-----------------
+start.sh executable: YES
+stop.sh executable: YES
+start.sh syntax valid: YES
+stop.sh syntax valid: YES
+
+Setup Status:
+------------
+[PASS] Directory structure created
+[PASS] Docker Compose configuration ready
+[PASS] Automation scripts ready
+[PASS] Documentation complete
+
+Validation Summary:
+------------------
+[PASS] All directories exist (15 directories total)
+[PASS] All core files exist (8 files)
+[PASS] docker-compose.yml has valid YAML syntax
+[PASS] All 8 services defined in docker-compose.yml
+[PASS] Network defined in docker-compose.yml
+[PASS] Both scripts are executable
+[PASS] Both scripts have valid bash syntax
+[PASS] .env.example contains all required variables
+[PASS] README.md has substantial content (212 lines) and key sections
+[PASS] SETUP_GUIDE.md has all 7 service sections (627 lines)
+[PASS] VERIFICATION.md has test phases (342 lines)
+[PASS] TROUBLESHOOTING.md has substantial content (528 lines)
+
+Next Steps:
+----------
+1. Copy .env.example to .env and configure Real-Debrid API key
+2. Run ./start.sh to start all services
+3. Follow SETUP_GUIDE.md to configure each service
+4. Use VERIFICATION.md to test the setup
+5. Refer to TROUBLESHOOTING.md if issues arise
+
+Ready for deployment!

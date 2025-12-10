@@ -1,0 +1,17 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Media files (optional - uncomment if you don't want to track these)
+# media/movies/
+# media/tv/
+# media/downloads/
