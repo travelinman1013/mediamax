@@ -10,7 +10,7 @@ services:
       - "6888:6888/udp"
     volumes:
       - ./config/aria2:/config
-      - /Volumes/the-eagle/media/downloads:/data/downloads
+      - /Volumes/the-eagle/media:/media
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -40,11 +40,13 @@ services:
       - "${RDTCLIENT_PORT:-6500}:6500"
     volumes:
       - ./config/rdtclient:/data/db
-      - /Volumes/the-eagle/media/downloads:/data/downloads
+      - /Volumes/the-eagle/media:/media
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
       - TZ=${TZ:-America/Chicago}
+      - Logging__LogLevel__Default=Warning
+      - Logging__LogLevel__Microsoft=Warning
     networks:
       - media-network
     depends_on:
@@ -89,7 +91,6 @@ services:
     volumes:
       - ./config/radarr:/config
       - /Volumes/the-eagle/media:/media
-      - /Volumes/the-eagle/media/downloads:/data/downloads
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -118,7 +119,6 @@ services:
     volumes:
       - ./config/sonarr:/config
       - /Volumes/the-eagle/media:/media
-      - /Volumes/the-eagle/media/downloads:/data/downloads
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
