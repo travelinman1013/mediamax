@@ -1,4 +1,36 @@
 services:
+  # Aria2 Download Manager (for RDTClient)
+  aria2:
+    image: p3terx/aria2-pro:latest
+    container_name: aria2
+    restart: unless-stopped
+    ports:
+      - "6800:6800"       # RPC port
+      - "6888:6888"       # BitTorrent port
+      - "6888:6888/udp"
+    volumes:
+      - ./config/aria2:/config
+      - /Volumes/the-eagle/media/downloads:/data/downloads
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Chicago}
+      - RPC_SECRET=rdtclient123
+      - RPC_PORT=6800
+      - LISTEN_PORT=6888
+      - DISK_CACHE=64M
+      - IPV6_MODE=false
+      - UPDATE_TRACKERS=true
+      - CUSTOM_TRACKER_URL=
+    networks:
+      - media-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf -X POST http://localhost:6800/jsonrpc -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":\"1\",\"method\":\"aria2.getVersion\",\"params\":[\"token:rdtclient123\"]}' | grep -q version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
   # Real-Debrid Download Client
   rdtclient:
     image: rogerfar/rdtclient:latest
@@ -15,6 +47,9 @@ services:
       - TZ=${TZ:-America/Chicago}
     networks:
       - media-network
+    depends_on:
+      aria2:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:6500"]
       interval: 30s
