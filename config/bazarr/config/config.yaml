@@ -66,7 +66,8 @@ general:
   embedded_subs_show_desired: true
   embedded_subtitles_parser: ffprobe
   enabled_integrations: []
-  enabled_providers: []
+  enabled_providers:
+  - opensubtitlescom
   flask_secret_key: fbfa99c2fa1fa7a77d8fa738566c7419
   hi_extension: hi
   ignore_ass_subs: false
@@ -76,9 +77,9 @@ general:
   language_equals: []
   minimum_score: 90
   minimum_score_movie: 70
-  movie_default_enabled: false
-  movie_default_profile: ''
-  movie_tag_enabled: false
+  movie_default_enabled: true
+  movie_default_profile: 1
+  movie_tag_enabled: true
   multithreading: true
   page_size: 25
   parse_embedded_audio_track: false
@@ -89,9 +90,9 @@ general:
   postprocessing_threshold: 90
   postprocessing_threshold_movie: 70
   remove_profile_tags: []
-  serie_default_enabled: false
-  serie_default_profile: ''
-  serie_tag_enabled: false
+  serie_default_enabled: true
+  serie_default_profile: 1
+  serie_tag_enabled: true
   single_language: false
   skip_hashing: false
   subfolder: current
@@ -106,9 +107,9 @@ general:
   use_postprocessing: false
   use_postprocessing_threshold: false
   use_postprocessing_threshold_movie: false
-  use_radarr: false
+  use_radarr: true
   use_scenename: true
-  use_sonarr: false
+  use_sonarr: true
   utf8_encode: true
   wanted_search_frequency: 6
   wanted_search_frequency_movie: 6
@@ -167,10 +168,10 @@ opensubtitles:
   username: ''
   vip: false
 opensubtitlescom:
-  include_ai_translated: false
-  password: ''
+  include_ai_translated: true
+  password: krader66
   use_hash: true
-  username: ''
+  username: travelinman1013
 plex:
   apikey: ''
   auth_method: apikey
@@ -215,15 +216,15 @@ proxy:
   url: ''
   username: ''
 radarr:
-  apikey: ''
-  base_url: /
+  apikey: 5c9c350e42cb46248007aec9fe600a46
+  base_url: ''
   defer_search_signalr: false
   excluded_tags: []
   full_update: Daily
   full_update_day: 6
   full_update_hour: 4
   http_timeout: 60
-  ip: 127.0.0.1
+  ip: radarr
   movies_sync: 60
   only_monitored: false
   port: 7878
@@ -244,8 +245,8 @@ series_scores:
   video_codec: 2
   year: 90
 sonarr:
-  apikey: ''
-  base_url: /
+  apikey: cd910c1f279b43479b36e54aac072928
+  base_url: ''
   defer_search_signalr: false
   exclude_season_zero: false
   excluded_series_types: []
@@ -254,7 +255,7 @@ sonarr:
   full_update_day: 6
   full_update_hour: 4
   http_timeout: 60
-  ip: 127.0.0.1
+  ip: sonarr
   only_monitored: false
   port: 8989
   series_sync: 60

@@ -1,0 +1,26 @@
+2025-12-10 14:51:33|INFO    |root                            |Scheduler will use this timezone: America/Chicago|
+2025-12-10 14:51:34|INFO    |root                            |Interactive jobs queue started and waiting for tasks|
+2025-12-10 14:51:34|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-12-10 14:51:34|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-12-10 14:58:33|INFO    |root                            |Scheduler will use this timezone: America/Chicago|
+2025-12-10 14:58:33|INFO    |root                            |Interactive jobs queue started and waiting for tasks|
+2025-12-10 14:58:33|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-12-10 14:58:33|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-12-10 19:43:01|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-12-10 19:43:01|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-10 19:43:52|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-12-10 19:43:52|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-10 20:19:49|ERROR   |root                            |BAZARR SignalR client for Sonarr connection as been lost. Trying to reconnect...|
+2025-12-10 20:19:49|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-10 20:20:39|INFO    |root                            |Scheduler will use this timezone: America/Chicago|
+2025-12-10 20:20:39|INFO    |root                            |Interactive jobs queue started and waiting for tasks|
+2025-12-10 20:20:39|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-12-10 20:20:39|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-12-10 20:20:39|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-12-10 20:20:39|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-12-10 20:20:39|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-10 20:20:39|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-10 22:30:29|ERROR   |engineio.server                 |Invalid session P1TG0evabdfsT_IXAAAC (further occurrences of this error will be logged with level INFO)|
+2025-12-10 23:17:41|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 00:11:30 CST)" was missed by 0:06:11.369932|
+2025-12-10 23:17:41|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-10 23:19:39 CST)" was missed by 0:58:02.371363|
+2025-12-10 23:17:41|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-11 01:54:05 CST)" was missed by 0:23:36.372395|

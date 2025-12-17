@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Stack Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #e4e4e7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d9ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .architecture {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .layer {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .layer-title {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: #1a1a2e;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .user-layer .layer-title { color: #22d3ee; border: 1px solid #22d3ee; }
+        .presentation-layer .layer-title { color: #a855f7; border: 1px solid #a855f7; }
+        .management-layer .layer-title { color: #f59e0b; border: 1px solid #f59e0b; }
+        .download-layer .layer-title { color: #10b981; border: 1px solid #10b981; }
+        .storage-layer .layer-title { color: #6366f1; border: 1px solid #6366f1; }
+        .external-layer .layer-title { color: #ec4899; border: 1px solid #ec4899; }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+            min-width: 160px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .service-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .service-desc {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .service-port {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-family: monospace;
+            color: #94a3b8;
+        }
+
+        /* Service colors */
+        .jellyseerr { border-color: #a855f7; }
+        .jellyseerr .service-icon { color: #a855f7; }
+        .jellyfin { border-color: #00a4dc; }
+        .jellyfin .service-icon { color: #00a4dc; }
+        .radarr { border-color: #ffc230; }
+        .radarr .service-icon { color: #ffc230; }
+        .sonarr { border-color: #00ccff; }
+        .sonarr .service-icon { color: #00ccff; }
+        .prowlarr { border-color: #ff6600; }
+        .prowlarr .service-icon { color: #ff6600; }
+        .bazarr { border-color: #44cc44; }
+        .bazarr .service-icon { color: #44cc44; }
+        .rdtclient { border-color: #10b981; }
+        .rdtclient .service-icon { color: #10b981; }
+        .aria2 { border-color: #14b8a6; }
+        .aria2 .service-icon { color: #14b8a6; }
+        .flaresolverr { border-color: #f97316; }
+        .flaresolverr .service-icon { color: #f97316; }
+        .realdebrid { border-color: #22c55e; }
+        .realdebrid .service-icon { color: #22c55e; }
+        .user { border-color: #22d3ee; }
+        .user .service-icon { color: #22d3ee; }
+
+        /* Flow arrows */
+        .flow-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .flow-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+
+        .flow-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .flow-arrow span {
+            font-size: 0.65rem;
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Storage section */
+        .storage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .storage-item {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .storage-item h4 {
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            margin-bottom: 4px;
+        }
+
+        .storage-item code {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Data flow diagram */
+        .dataflow {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .dataflow h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+            color: #e4e4e7;
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .step-arrow {
+            color: #64748b;
+            font-size: 1.2rem;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Network info */
+        .network-info {
+            margin-top: 30px;
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+
+        .network-info h3 {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .network-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #a5b4fc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .service { min-width: 140px; }
+            .flow-step { flex-direction: column; }
+            .step-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Media Stack Architecture</h1>
+        <p class="subtitle">Self-hosted Netflix-like streaming with Real-Debrid &amp; automated content management</p>
+
+        <div class="architecture">
+            <!-- User Layer -->
+            <div class="layer user-layer">
+                <div class="layer-title">User Access</div>
+                <div class="services">
+                    <div class="service user">
+                        <div class="service-icon">👤</div>
+                        <div class="service-name">User</div>
+                        <div class="service-desc">Browser / Apps</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    <span>HTTP Requests</span>
+                </div>
+            </div>
+
+            <!-- Presentation Layer -->
+            <div class="layer presentation-layer">
+                <div class="layer-title">Presentation Layer</div>
+                <div class="services">
+                    <div class="service jellyseerr">
+                        <div class="service-icon">🎬</div>
+                        <div class="service-name">Jellyseerr</div>
+                        <div class="service-desc">Request Management UI</div>
+                        <div class="service-port">:5055</div>
+                    </div>
+                    <div class="service jellyfin">
+                        <div class="service-icon">📺</div>
+                        <div class="service-name">Jellyfin</div>
+                        <div class="service-desc">Media Server & Player</div>
+                        <div class="service-port">:8096</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    <span>API Calls</span>
+                </div>
+            </div>
+
+            <!-- Management Layer -->
+            <div class="layer management-layer">
+                <div class="layer-title">Management Layer</div>
+                <div class="services">
+                    <div class="service radarr">
+                        <div class="service-icon">🎥</div>
+                        <div class="service-name">Radarr</div>
+                        <div class="service-desc">Movie Automation</div>
+                        <div class="service-port">:7878</div>
+                    </div>
+                    <div class="service sonarr">
+                        <div class="service-icon">📡</div>
+                        <div class="service-name">Sonarr</div>
+                        <div class="service-desc">TV Show Automation</div>
+                        <div class="service-port">:8989</div>
+                    </div>
+                    <div class="service prowlarr">
+                        <div class="service-icon">🔍</div>
+                        <div class="service-name">Prowlarr</div>
+                        <div class="service-desc">Indexer Manager</div>
+                        <div class="service-port">:9696</div>
+                    </div>
+                    <div class="service bazarr">
+                        <div class="service-icon">💬</div>
+                        <div class="service-name">Bazarr</div>
+                        <div class="service-desc">Subtitle Manager</div>
+                        <div class="service-port">:6767</div>
+                    </div>
+                    <div class="service flaresolverr">
+                        <div class="service-icon">🛡️</div>
+                        <div class="service-name">Flaresolverr</div>
+                        <div class="service-desc">Cloudflare Bypass</div>
+                        <div class="service-port">:8191</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    <span>Download Requests</span>
+                </div>
+            </div>
+
+            <!-- Download Layer -->
+            <div class="layer download-layer">
+                <div class="layer-title">Download Layer</div>
+                <div class="services">
+                    <div class="service rdtclient">
+                        <div class="service-icon">⚡</div>
+                        <div class="service-name">RDTClient</div>
+                        <div class="service-desc">Real-Debrid Client</div>
+                        <div class="service-port">:6500</div>
+                    </div>
+                    <div class="service aria2">
+                        <div class="service-icon">⬇️</div>
+                        <div class="service-name">Aria2</div>
+                        <div class="service-desc">Download Manager</div>
+                        <div class="service-port">:6800</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    <span>CDN Download</span>
+                </div>
+            </div>
+
+            <!-- External Services -->
+            <div class="layer external-layer">
+                <div class="layer-title">External Services</div>
+                <div class="services">
+                    <div class="service realdebrid">
+                        <div class="service-icon">☁️</div>
+                        <div class="service-name">Real-Debrid</div>
+                        <div class="service-desc">CDN & Cache Service</div>
+                        <div class="service-port">HTTPS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    <span>File Storage</span>
+                </div>
+            </div>
+
+            <!-- Storage Layer -->
+            <div class="layer storage-layer">
+                <div class="layer-title">Storage Layer</div>
+                <div class="storage-grid">
+                    <div class="storage-item">
+                        <h4>📁 Downloads (Temp)</h4>
+                        <code>/Volumes/the-eagle/media/downloads</code>
+                    </div>
+                    <div class="storage-item">
+                        <h4>🎬 Movies Library</h4>
+                        <code>/Volumes/the-eagle/media/movies</code>
+                    </div>
+                    <div class="storage-item">
+                        <h4>📺 TV Library</h4>
+                        <code>/Volumes/the-eagle/media/tv</code>
+                    </div>
+                    <div class="storage-item">
+                        <h4>⚙️ Service Configs</h4>
+                        <code>./config/*</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Flow -->
+        <div class="dataflow">
+            <h2>Content Request Flow</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #a855f7;">Request Movie</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #ffc230;">Radarr Search</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #ff6600;">Prowlarr Query</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #10b981;">RDTClient</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #22c55e;">Real-Debrid</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #14b8a6;">Aria2 Download</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #ffc230;">Radarr Import</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #00a4dc;">Jellyfin Index</div>
+                    <div class="step-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-box" style="border-color: #22d3ee;">Ready to Watch!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Network Info -->
+        <div class="network-info">
+            <h3>Docker Network</h3>
+            <div class="network-badge">media-network (bridge)</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #a855f7;"></div>
+                <span>Request UI</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #00a4dc;"></div>
+                <span>Media Server</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #ffc230;"></div>
+                <span>Movie Manager</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #00ccff;"></div>
+                <span>TV Manager</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #ff6600;"></div>
+                <span>Indexer</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #10b981;"></div>
+                <span>Download</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #6366f1;"></div>
+                <span>Storage</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

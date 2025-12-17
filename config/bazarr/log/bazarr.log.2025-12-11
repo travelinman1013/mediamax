@@ -1,0 +1,62 @@
+2025-12-11 01:02:01|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 01:11:30 CST)" was missed by 0:50:31.483406|
+2025-12-11 01:02:01|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 01:19:39 CST)" was missed by 0:42:22.484370|
+2025-12-11 01:37:01|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 02:19:39 CST)" was missed by 0:17:22.546435|
+2025-12-11 01:40:16|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-11 04:54:05 CST)" was missed by 0:32:42.991492|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Update Announcements File (trigger: interval[6:00:00], next run at: 2025-12-11 07:56:30 CST)" was missed by 0:30:17.992758|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Movies Subtitles (trigger: interval[6:00:00], next run at: 2025-12-11 08:06:55 CST)" was missed by 0:19:52.993233|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 03:11:30 CST)" was missed by 0:15:17.994323|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Check Health (trigger: interval[6:00:00], next run at: 2025-12-11 08:12:27 CST)" was missed by 0:14:20.994902|
+2025-12-11 02:26:48|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 03:19:39 CST)" was missed by 0:07:08.995417|
+2025-12-11 03:42:31|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 04:11:30 CST)" was missed by 0:31:01.553285|
+2025-12-11 03:42:31|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 04:19:39 CST)" was missed by 0:22:52.554217|
+2025-12-11 04:00:00|INFO    |root                            |BAZARR All existing episode subtitles indexed from disk.|
+2025-12-11 04:00:00|INFO    |root                            |BAZARR All existing movie subtitles indexed from disk.|
+2025-12-11 04:28:14|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 05:11:30 CST)" was missed by 0:16:44.698392|
+2025-12-11 04:28:14|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 05:19:39 CST)" was missed by 0:08:35.699251|
+2025-12-11 05:25:57|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-11 07:54:05 CST)" was missed by 0:31:52.579151|
+2025-12-11 05:25:57|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 06:11:30 CST)" was missed by 0:14:27.579470|
+2025-12-11 05:25:57|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 06:19:39 CST)" was missed by 0:06:18.579648|
+2025-12-11 07:40:16|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+2025-12-11 07:47:47|INFO    |root                            |BAZARR Finished searching for Subtitles to upgrade. Check History for more information.|
+2025-12-11 07:59:31|ERROR   |root                            |BAZARR SignalR client for Radarr connection as been lost. Trying to reconnect...|
+2025-12-11 07:59:33|ERROR   |root                            |BAZARR SignalR client for Sonarr connection as been lost. Trying to reconnect...|
+2025-12-11 07:59:45|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-11 07:59:45|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-11 08:05:35|INFO    |root                            |Scheduler will use this timezone: America/Chicago|
+2025-12-11 08:05:36|INFO    |root                            |Interactive jobs queue started and waiting for tasks|
+2025-12-11 08:05:36|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-12-11 08:05:36|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-12-11 08:05:36|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-12-11 08:05:36|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-12-11 08:05:36|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-11 08:05:36|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-11 08:13:25|INFO    |root                            |Scheduler will use this timezone: America/Chicago|
+2025-12-11 08:13:26|INFO    |root                            |Interactive jobs queue started and waiting for tasks|
+2025-12-11 08:13:26|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-12-11 08:13:26|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-12-11 08:13:26|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-12-11 08:13:26|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-12-11 08:13:26|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-11 08:13:26|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-12-11 08:40:32|ERROR   |root                            |BAZARR SignalR client for Radarr connection as been lost. Trying to reconnect...|
+2025-12-11 08:40:33|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-11 08:44:48|ERROR   |root                            |BAZARR SignalR client for Radarr connection as been lost. Trying to reconnect...|
+2025-12-11 08:44:49|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-12-11 13:17:38|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+2025-12-11 13:30:00|WARNING |apscheduler.executors.default   |Run time of job "Update Announcements File (trigger: interval[6:00:00], next run at: 2025-12-11 19:27:25 CST)" was missed by 0:02:34.855613|
+2025-12-11 14:48:01|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 15:02:23 CST)" was missed by 0:45:37.803927|
+2025-12-11 14:48:01|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-11 17:04:54 CST)" was missed by 0:43:06.805749|
+2025-12-11 14:48:01|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 15:06:55 CST)" was missed by 0:41:05.806666|
+2025-12-11 14:48:01|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Movies Subtitles (trigger: interval[6:00:00], next run at: 2025-12-11 20:09:54 CST)" was missed by 0:38:06.807241|
+2025-12-11 15:29:44|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 16:02:23 CST)" was missed by 0:27:21.247259|
+2025-12-11 15:29:44|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 16:06:55 CST)" was missed by 0:22:49.248466|
+2025-12-11 16:55:19|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 17:02:23 CST)" was missed by 0:52:56.150104|
+2025-12-11 16:55:19|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 17:06:55 CST)" was missed by 0:48:24.151600|
+2025-12-11 17:45:22|INFO    |root                            |BAZARR Finished searching for Subtitles to upgrade. Check History for more information.|
+2025-12-11 18:06:20|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 19:02:23 CST)" was missed by 0:03:56.512031|
+2025-12-11 18:26:46|ERROR   |engineio.server                 |Invalid session xwr-s011BlqCDaw6AAAM (further occurrences of this error will be logged with level INFO)|
+2025-12-11 19:17:57|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-11 20:02:23 CST)" was missed by 0:15:34.173964|
+2025-12-11 19:17:57|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-11 20:06:55 CST)" was missed by 0:11:02.174346|
+2025-12-11 19:17:57|WARNING |apscheduler.executors.default   |Run time of job "Check Health (trigger: interval[6:00:00], next run at: 2025-12-12 01:13:23 CST)" was missed by 0:04:34.174794|
+2025-12-11 19:17:57|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Series Subtitles (trigger: interval[6:00:00], next run at: 2025-12-12 01:17:38 CST)" was missed by 0:00:19.174980|

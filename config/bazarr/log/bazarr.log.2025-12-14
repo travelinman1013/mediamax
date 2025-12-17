@@ -1,0 +1,45 @@
+2025-12-14 01:17:38|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+2025-12-14 02:34:07|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 03:02:23 CST)" was missed by 0:31:43.434434|
+2025-12-14 02:34:07|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-14 05:04:54 CST)" was missed by 0:29:12.435753|
+2025-12-14 02:34:07|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 03:06:55 CST)" was missed by 0:27:11.436428|
+2025-12-14 02:34:07|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Movies Subtitles (trigger: interval[6:00:00], next run at: 2025-12-14 08:09:54 CST)" was missed by 0:24:12.436906|
+2025-12-14 04:23:16|WARNING |apscheduler.executors.default   |Run time of job "Backup Database and Configuration File (trigger: cron[day_of_week='6', hour='3'], next run at: 2025-12-21 03:00:00 CST)" was missed by 1:23:16.713326|
+2025-12-14 04:23:16|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 05:02:23 CST)" was missed by 0:20:53.033387|
+2025-12-14 04:23:16|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 05:06:55 CST)" was missed by 0:16:21.034332|
+2025-12-14 04:23:16|WARNING |apscheduler.executors.default   |Run time of job "Index All Episode Subtitles from Disk (trigger: cron[hour='4'], next run at: 2025-12-15 04:00:00 CST)" was missed by 0:23:16.716144|
+2025-12-14 04:23:16|WARNING |apscheduler.executors.default   |Run time of job "Index All Movie Subtitles from Disk (trigger: cron[hour='4'], next run at: 2025-12-15 04:00:00 CST)" was missed by 0:23:16.716540|
+2025-12-14 06:44:49|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 07:02:23 CST)" was missed by 0:42:25.457358|
+2025-12-14 06:44:49|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-14 08:04:54 CST)" was missed by 1:39:54.458351|
+2025-12-14 06:44:49|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 07:06:55 CST)" was missed by 0:37:53.458848|
+2025-12-14 06:44:49|WARNING |apscheduler.executors.default   |Run time of job "Upgrade Previously Downloaded Subtitles (trigger: interval[12:00:00], next run at: 2025-12-14 17:45:22 CST)" was missed by 0:59:26.459300|
+2025-12-14 06:44:49|WARNING |apscheduler.executors.default   |Run time of job "Cache Maintenance (trigger: interval[1 day, 0:00:00], next run at: 2025-12-15 05:49:21 CST)" was missed by 0:55:27.459605|
+2025-12-14 07:18:15|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 08:02:23 CST)" was missed by 0:15:51.921123|
+2025-12-14 07:18:15|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 08:06:55 CST)" was missed by 0:11:19.922492|
+2025-12-14 07:18:15|WARNING |apscheduler.executors.default   |Run time of job "Check Health (trigger: interval[6:00:00], next run at: 2025-12-14 13:13:23 CST)" was missed by 0:04:51.923542|
+2025-12-14 07:18:15|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Series Subtitles (trigger: interval[6:00:00], next run at: 2025-12-14 13:17:38 CST)" was missed by 0:00:36.924042|
+2025-12-14 08:09:54|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+2025-12-14 09:21:51|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 10:06:55 CST)" was missed by 0:14:55.353335|
+2025-12-14 11:32:00|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 12:02:23 CST)" was missed by 0:29:36.369897|
+2025-12-14 11:32:00|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 12:06:55 CST)" was missed by 0:25:04.371122|
+2025-12-14 11:32:00|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-14 14:04:54 CST)" was missed by 0:27:05.372305|
+2025-12-14 12:23:22|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 13:02:23 CST)" was missed by 0:20:59.241451|
+2025-12-14 12:23:22|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 13:06:55 CST)" was missed by 0:16:27.242267|
+2025-12-14 13:33:12|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Series Subtitles (trigger: interval[6:00:00], next run at: 2025-12-14 19:17:38 CST)" was missed by 0:15:33.906945|
+2025-12-14 13:33:12|WARNING |apscheduler.executors.default   |Run time of job "Update Announcements File (trigger: interval[6:00:00], next run at: 2025-12-14 19:27:25 CST)" was missed by 0:05:46.907881|
+2025-12-14 14:27:10|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 15:02:23 CST)" was missed by 0:24:46.481044|
+2025-12-14 14:27:10|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-14 17:04:54 CST)" was missed by 0:22:15.481953|
+2025-12-14 14:27:10|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 15:06:55 CST)" was missed by 0:20:14.483007|
+2025-12-14 14:27:10|WARNING |apscheduler.executors.default   |Run time of job "Search for Missing Movies Subtitles (trigger: interval[6:00:00], next run at: 2025-12-14 20:09:54 CST)" was missed by 0:17:15.483636|
+2025-12-14 15:19:02|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 16:02:23 CST)" was missed by 0:16:38.770217|
+2025-12-14 15:19:02|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 16:06:55 CST)" was missed by 0:12:06.771519|
+2025-12-14 16:08:37|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 17:02:23 CST)" was missed by 0:06:14.122837|
+2025-12-14 16:08:37|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 17:06:55 CST)" was missed by 0:01:42.123810|
+2025-12-14 17:11:10|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 18:02:23 CST)" was missed by 0:08:46.429398|
+2025-12-14 17:11:10|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2025-12-14 20:04:54 CST)" was missed by 0:06:15.430140|
+2025-12-14 17:11:10|WARNING |apscheduler.executors.default   |Run time of job "Sync with Radarr (trigger: interval[1:00:00], next run at: 2025-12-14 18:06:55 CST)" was missed by 0:04:14.430654|
+2025-12-14 17:50:40|WARNING |apscheduler.executors.default   |Run time of job "Upgrade Previously Downloaded Subtitles (trigger: interval[12:00:00], next run at: 2025-12-15 05:45:22 CST)" was missed by 0:05:17.429426|
+2025-12-14 18:03:02|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 19:02:23 CST)" was missed by 0:00:38.813564|
+2025-12-14 19:03:41|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 20:02:23 CST)" was missed by 0:01:18.029117|
+2025-12-14 19:17:38|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+2025-12-14 20:09:54|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+2025-12-14 21:04:24|WARNING |apscheduler.executors.default   |Run time of job "Sync with Sonarr (trigger: interval[1:00:00], next run at: 2025-12-14 22:02:23 CST)" was missed by 0:02:00.664547|
