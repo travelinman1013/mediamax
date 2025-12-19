@@ -15,3 +15,32 @@ logs/
 # media/movies/
 # media/tv/
 # media/downloads/
+
+# Runtime state files and databases
+config/**/*.db
+config/**/*.db-shm
+config/**/*.db-wal
+config/**/*.pid
+
+# Generated metadata and caches
+config/jellyfin/metadata/
+config/jellyfin/data/subtitles/
+config/bazarr/cache/
+config/bazarr/log/
+config/jellyseerr/cache/
+config/prowlarr/Backups/
+config/radarr/Backups/
+config/radarr/MediaCover/
+config/sonarr/Backups/
+config/*/Sentry/
+config/prowlarr/logs.db
+config/radarr/logs.db
+config/sonarr/logs.db
+
+# Docker state files
+config/prowlarr/prowlarr.db-shm
+config/prowlarr/prowlarr.db-wal
+config/radarr/radarr.db-shm
+config/radarr/radarr.db-wal
+config/sonarr/sonarr.db-shm
+config/sonarr/sonarr.db-wal
