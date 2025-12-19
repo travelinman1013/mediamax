@@ -74,6 +74,9 @@ services:
       - TZ=${TZ:-America/Chicago}
     networks:
       - media-network
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9696"]
       interval: 30s
@@ -97,6 +100,9 @@ services:
       - TZ=${TZ:-America/Chicago}
     networks:
       - media-network
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
     depends_on:
       rdtclient:
         condition: service_healthy
@@ -125,6 +131,9 @@ services:
       - TZ=${TZ:-America/Chicago}
     networks:
       - media-network
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
     depends_on:
       rdtclient:
         condition: service_healthy
@@ -232,6 +241,9 @@ services:
       - TZ=${TZ:-America/Chicago}
     networks:
       - media-network
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8191/health"]
       interval: 30s
