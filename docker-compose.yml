@@ -251,6 +251,122 @@ services:
       retries: 3
       start_period: 30s
 
+  # Music Management (like Radarr for music)
+  lidarr:
+    image: linuxserver/lidarr:latest
+    container_name: lidarr
+    restart: unless-stopped
+    ports:
+      - "${LIDARR_PORT:-8686}:8686"
+    volumes:
+      - ./config/lidarr:/config
+      - /Volumes/the-eagle/media:/media
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Chicago}
+    networks:
+      - media-network
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    depends_on:
+      rdtclient:
+        condition: service_healthy
+      prowlarr:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8686"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Music Streaming Server (Subsonic API)
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    restart: unless-stopped
+    ports:
+      - "${NAVIDROME_PORT:-4533}:4533"
+    volumes:
+      - ./config/navidrome:/data
+      - /Volumes/the-eagle/media/music:/music:ro
+    environment:
+      - ND_SCANSCHEDULE=1h
+      - ND_LOGLEVEL=info
+      - ND_SESSIONTIMEOUT=24h
+      - ND_BASEURL=
+    user: "${PUID:-1000}:${PGID:-1000}"
+    networks:
+      - media-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:4533/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Deezer FLAC Downloader (web UI)
+  deemix:
+    image: registry.gitlab.com/bockiii/deemix-docker:latest
+    container_name: deemix
+    restart: unless-stopped
+    ports:
+      - "${DEEMIX_PORT:-6595}:6595"
+    volumes:
+      - ./config/deemix:/config
+      - /Volumes/the-eagle/media/music:/downloads
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - DEEMIX_SINGLE_USER=true
+      - ARL=${DEEZER_ARL}
+    networks:
+      - media-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6595"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Spotify Playlist Downloader (run on-demand)
+  # Usage: docker compose run --rm spotdl --cookie-file /config/cookies.txt download "spotify_url"
+  # Requires YouTube cookies - export from browser to config/spotdl/cookies.txt
+  spotdl:
+    image: spotdl/spotify-downloader:latest
+    container_name: spotdl
+    profiles:
+      - tools
+    volumes:
+      - /Volumes/the-eagle/media/music:/music
+      - ./config/spotdl:/config
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+    working_dir: /music
+    networks:
+      - media-network
+
+  # Cloudflare Tunnel - Secure external access without port forwarding
+  # Public hostnames: watch.maxmerize.watch, request.maxmerize.watch
+  # Configure in: Cloudflare Zero Trust → Networks → Tunnels → Public Hostnames
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    networks:
+      - media-network
+    depends_on:
+      jellyfin:
+        condition: service_healthy
+      jellyseerr:
+        condition: service_healthy
+
 networks:
   media-network:
     driver: bridge
